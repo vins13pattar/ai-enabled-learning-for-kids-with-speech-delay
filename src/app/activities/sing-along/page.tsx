@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { ZippyParrot } from "@/components/ZippyParrot";
 import { SING_ALONG_SONGS } from "@/lib/content";
 import { recordPracticeSession } from "@/lib/rewards";
 
@@ -96,7 +97,7 @@ export default function SingAlongPage() {
           ) : (
             <>
               <div className="flex items-center gap-3 rounded-2xl bg-[var(--accent-soft)] p-4">
-                <span className="text-2xl">🦜</span>
+                <ZippyParrot size={40} variant="celebrate" className="flex-shrink-0" />
                 <p className="text-sm font-semibold text-[var(--ink)]">
                   Sing the highlighted line out loud, then tap Next!
                 </p>

@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ACTIVITIES } from "@/lib/content";
 import { loadOnboarding } from "@/lib/onboarding-storage";
 import { loadRewards } from "@/lib/rewards";
+import { ZippyParrot } from "@/components/ZippyParrot";
 
 const GREETINGS = [
   "Ready to practice? Let's go!",
@@ -44,7 +45,7 @@ export default function HomeScreen() {
   if (!ready) {
     return (
       <main className="mx-auto flex min-h-dvh max-w-lg flex-col items-center justify-center px-6 py-12">
-        <span className="animate-float text-6xl">🦜</span>
+        <ZippyParrot size={80} className="animate-float" />
       </main>
     );
   }
@@ -52,7 +53,7 @@ export default function HomeScreen() {
   if (!profile) {
     return (
       <main className="mx-auto flex min-h-dvh max-w-lg flex-col gap-4 px-6 py-12">
-        <span className="text-5xl text-center">🦜</span>
+        <ZippyParrot size={72} className="mx-auto animate-float" />
         <h1 className="text-2xl font-bold text-center">Almost ready!</h1>
         <p className="text-slate-600 text-center">A grown-up needs to finish setup first.</p>
         <Link
@@ -75,7 +76,7 @@ export default function HomeScreen() {
           ← Back
         </Link>
         <div className="mt-3 flex items-center gap-4">
-          <span className="text-5xl animate-float" role="img" aria-label="Zippy">🦜</span>
+          <ZippyParrot size={64} className="animate-float flex-shrink-0" />
           <div>
             <h1 className="text-2xl font-bold text-[var(--ink)]">{greeting}</h1>
             <p className="text-sm text-slate-500">{subtitle}</p>

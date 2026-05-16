@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
+import { ZippyParrot } from "@/components/ZippyParrot";
 
 type Message = { role: "user" | "buddy"; text: string };
 
@@ -71,7 +72,7 @@ export default function CompanionPage() {
           ← Home
         </Link>
         <div className="flex items-center gap-2 ml-2">
-          <span className="text-3xl animate-float">🦜</span>
+          <ZippyParrot size={44} className="animate-float flex-shrink-0" />
           <div>
             <p className="font-bold text-[var(--ink)]">Zippy the Parrot</p>
             <p className="text-xs text-[var(--success)] font-semibold">● Online & ready!</p>
@@ -87,7 +88,7 @@ export default function CompanionPage() {
             className={`flex gap-2 ${m.role === "user" ? "justify-end" : "justify-start"} animate-fade-in-up`}
           >
             {m.role === "buddy" && (
-              <span className="text-2xl flex-shrink-0 mt-1">🦜</span>
+              <ZippyParrot size={36} className="flex-shrink-0 mt-1" />
             )}
             <div
               className={`rounded-3xl px-4 py-3 max-w-[80%] text-sm font-medium leading-relaxed ${
@@ -104,8 +105,8 @@ export default function CompanionPage() {
           </div>
         ))}
         {loading && (
-          <div className="flex gap-2 items-center animate-fade-in-up">
-            <span className="text-2xl">🦜</span>
+          <div className="flex gap-2 items-end animate-fade-in-up">
+            <ZippyParrot size={36} className="flex-shrink-0" />
             <div className="rounded-3xl bg-[var(--accent-soft)] px-4 py-3 rounded-tl-sm">
               <span className="animate-wiggle inline-block text-[var(--ink)] font-medium">
                 Zippy is thinking... 🤔

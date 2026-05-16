@@ -5,6 +5,8 @@ import { useMemo, useState } from "react";
 import { PICTURE_NAMING_ROUNDS } from "@/lib/content";
 import { recordPracticeSession } from "@/lib/rewards";
 import { scoreUtterance } from "@/lib/scoring";
+import { ZippyParrot } from "@/components/ZippyParrot";
+import { WordIllustration } from "@/components/WordIllustration";
 
 export default function PictureNamingPage() {
   const [round, setRound] = useState(0);
@@ -78,14 +80,18 @@ export default function PictureNamingPage() {
 
           <section className="rounded-3xl bg-white p-6 shadow-md ring-1 ring-slate-100 space-y-5 animate-fade-in-up">
             <div className="flex items-center gap-3">
-              <span className="text-3xl">🦜</span>
+              <ZippyParrot size={40} className="flex-shrink-0" />
               <p className="font-bold text-slate-700">What do you see? Say the word!</p>
             </div>
 
-            {/* Big emoji picture */}
-            <div className="rounded-3xl bg-[var(--accent-soft)] py-10 text-center">
-              <p className="text-8xl animate-float">{item.emoji}</p>
-              <p className="mt-3 text-sm font-medium text-slate-500">{item.imageLabel}</p>
+            {/* SVG illustration picture card */}
+            <div className="rounded-3xl bg-[var(--accent-soft)] py-6 text-center flex flex-col items-center gap-2">
+              <WordIllustration
+                word={item.target}
+                size={160}
+                className="animate-float drop-shadow-md"
+              />
+              <p className="text-sm font-medium text-slate-500 italic">{item.imageLabel}</p>
             </div>
 
             {lastPass === true && (

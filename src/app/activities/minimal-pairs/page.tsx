@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { ZippyParrot } from "@/components/ZippyParrot";
 import { MINIMAL_PAIR_SETS } from "@/lib/content";
 import { recordPracticeSession } from "@/lib/rewards";
 
@@ -76,7 +77,7 @@ export default function MinimalPairsPage() {
           <section className="rounded-3xl bg-white p-6 shadow-md ring-1 ring-slate-100 space-y-5 animate-fade-in-up">
             {/* Header */}
             <div className="flex items-center gap-3">
-              <span className="text-3xl">🦜</span>
+              <ZippyParrot size={40} className="flex-shrink-0" />
               <p className="font-bold text-slate-700">Listen carefully! 👂</p>
             </div>
 

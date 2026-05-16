@@ -5,6 +5,8 @@ import { useMemo, useState } from "react";
 import { ASSESSMENT_WORDS } from "@/lib/content";
 import { recordPracticeSession } from "@/lib/rewards";
 import { aggregateAssessmentScores, scoreUtterance, type ScoringResult } from "@/lib/scoring";
+import { ZippyParrot } from "@/components/ZippyParrot";
+import { WordIllustration } from "@/components/WordIllustration";
 
 function ConfettiPop() {
   const pieces = ["🌟", "⭐", "✨", "🎉", "🎊"];
@@ -111,14 +113,14 @@ export default function AssessmentPage() {
       {!done && current && (
         <section className="space-y-5 rounded-3xl bg-white p-6 shadow-md ring-1 ring-slate-100 animate-fade-in-up">
           <div className="flex items-center gap-3">
-            <span className="text-3xl">🦜</span>
+            <ZippyParrot size={40} className="flex-shrink-0" />
             <p className="text-base font-semibold text-slate-700">Say this word!</p>
           </div>
 
-          {/* Big emoji + word display */}
-          <div className="rounded-3xl bg-[var(--accent-soft)] py-8 text-center">
-            <p className="text-7xl animate-float">{current.emoji}</p>
-            <p className="mt-3 text-5xl font-black text-[var(--ink)] tracking-wide">
+          {/* SVG illustration + word display */}
+          <div className="rounded-3xl bg-[var(--accent-soft)] py-6 text-center flex flex-col items-center gap-2">
+            <WordIllustration word={current.word} size={140} className="animate-float drop-shadow-sm" />
+            <p className="text-5xl font-black text-[var(--ink)] tracking-wide mt-1">
               {current.word}
             </p>
           </div>
@@ -197,7 +199,7 @@ export default function AssessmentPage() {
                   key={w.id}
                   className="flex items-center justify-between gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm"
                 >
-                  <span className="text-2xl">{w.emoji}</span>
+                  <WordIllustration word={w.word} size={36} />
                   <span className="font-bold flex-1">{w.word}</span>
                   <span className={`text-base font-bold ${r.pass ? "text-[var(--success)]" : "text-amber-500"}`}>
                     {r.pass ? "🌟" : "💪"}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
+import { ZippyParrot } from "@/components/ZippyParrot";
 import {
   type AgeBracket,
   type OnboardingProfile,
@@ -70,7 +71,7 @@ export default function OnboardingPage() {
       {step === 0 && (
         <section className="space-y-5 rounded-3xl bg-white p-6 shadow-md ring-1 ring-slate-100 animate-fade-in-up">
           <div className="text-center space-y-3">
-            <span className="text-7xl animate-float inline-block">🦜</span>
+            <ZippyParrot size={100} variant="wave" className="animate-float mx-auto" />
             <h1 className="text-3xl font-black text-[var(--ink)]">Hi, grown-up!</h1>
             <p className="text-slate-600 leading-relaxed">
               I'm Zippy! I help kids practice their speech sounds in a fun, safe way.

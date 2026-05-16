@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { loadOnboarding } from "@/lib/onboarding-storage";
+import { ZippyParrot } from "@/components/ZippyParrot";
 
 export default function HomePage() {
   const [ready, setReady] = useState(false);
@@ -19,7 +20,7 @@ export default function HomePage() {
   if (!ready) {
     return (
       <main className="mx-auto flex min-h-dvh max-w-lg flex-col items-center justify-center gap-6 px-6 py-12">
-        <span className="animate-float text-6xl">🦜</span>
+        <ZippyParrot size={80} className="animate-float" />
       </main>
     );
   }
@@ -28,9 +29,7 @@ export default function HomePage() {
     <main className="mx-auto flex min-h-dvh max-w-lg flex-col gap-8 px-6 py-12">
       <header className="space-y-4 text-center animate-fade-in-up">
         <div className="flex justify-center">
-          <span className="text-8xl animate-float" role="img" aria-label="Zippy the parrot">
-            🦜
-          </span>
+          <ZippyParrot size={120} variant="wave" className="animate-float" />
         </div>
         <div>
           <h1 className="text-4xl font-bold tracking-tight text-[var(--ink)]">

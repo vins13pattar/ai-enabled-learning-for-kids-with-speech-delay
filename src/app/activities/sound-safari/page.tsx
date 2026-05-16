@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { SOUND_SAFARI_TARGETS } from "@/lib/content";
 import { recordPracticeSession } from "@/lib/rewards";
 import { scoreUtterance } from "@/lib/scoring";
+import { ZippyParrot } from "@/components/ZippyParrot";
 
 export default function SoundSafariPage() {
   const [index, setIndex] = useState(0);
@@ -80,7 +81,7 @@ export default function SoundSafariPage() {
           <section className="rounded-3xl bg-white p-6 shadow-md ring-1 ring-slate-100 space-y-5 animate-fade-in-up">
             {/* Header */}
             <div className="flex items-center gap-3">
-              <span className="text-3xl">🦜</span>
+              <ZippyParrot size={40} className="flex-shrink-0" />
               <p className="font-bold text-slate-700">Sound Safari — find it!</p>
             </div>
 
