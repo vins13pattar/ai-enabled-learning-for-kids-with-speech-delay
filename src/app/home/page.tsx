@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ACTIVITIES } from "@/lib/content";
 import { loadOnboarding } from "@/lib/onboarding-storage";
 import { loadRewards } from "@/lib/rewards";
+import { getTodaysFocusPhoneme, type PhonemeStats } from "@/lib/progress-storage";
 import { ZippyParrot } from "@/components/ZippyParrot";
 
 const GREETINGS = [
@@ -27,6 +28,7 @@ export default function HomeScreen() {
   const [rewards, setRewards] = useState(loadRewards());
   const [profile, setProfile] = useState<ReturnType<typeof loadOnboarding>>(null);
   const [greeting] = useState(() => GREETINGS[Math.floor(Math.random() * GREETINGS.length)]);
+  const [focusPhoneme, setFocusPhoneme] = useState<{ phoneme: string; label: string } | null>(null);
 
   const subtitle = useMemo(() => {
     if (!profile) return "Set up your profile first.";
@@ -37,6 +39,7 @@ export default function HomeScreen() {
     const id = requestAnimationFrame(() => {
       setRewards(loadRewards());
       setProfile(loadOnboarding());
+      setFocusPhoneme(getTodaysFocusPhoneme());
       setReady(true);
     });
     return () => cancelAnimationFrame(id);
@@ -85,21 +88,38 @@ export default function HomeScreen() {
       </header>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-2 gap-3 animate-fade-in-up">
-        <div className="rounded-3xl bg-amber-50 border-2 border-amber-200 px-4 py-4 text-center shadow-sm">
+      <div className="grid grid-cols-3 gap-2 animate-fade-in-up">
+        <div className="rounded-3xl bg-amber-50 border-2 border-amber-200 px-3 py-3 text-center shadow-sm">
           <p className="text-xs font-bold uppercase tracking-wide text-amber-600">⭐ Stars</p>
-          <p className="text-4xl font-black text-amber-500 mt-1">{rewards.stars}</p>
+          <p className="text-3xl font-black text-amber-500 mt-1">{rewards.stars}</p>
         </div>
-        <div className="rounded-3xl bg-green-50 border-2 border-green-200 px-4 py-4 text-center shadow-sm">
+        <div className="rounded-3xl bg-green-50 border-2 border-green-200 px-3 py-3 text-center shadow-sm">
           <p className="text-xs font-bold uppercase tracking-wide text-green-700">
             {streakFire} Streak
           </p>
-          <p className="text-4xl font-black text-green-600 mt-1">
+          <p className="text-3xl font-black text-green-600 mt-1">
             {rewards.streakDays}
-            <span className="text-lg font-semibold"> day{rewards.streakDays === 1 ? "" : "s"}</span>
           </p>
         </div>
+        <Link
+          href="/progress"
+          className="rounded-3xl bg-blue-50 border-2 border-blue-200 px-3 py-3 text-center shadow-sm hover:bg-blue-100 transition-colors"
+        >
+          <p className="text-xs font-bold uppercase tracking-wide text-blue-700">📊 Progress</p>
+          <p className="text-xs font-bold text-blue-600 mt-2">View report</p>
+        </Link>
       </div>
+
+      {/* Today's focus */}
+      {focusPhoneme && (
+        <div className="rounded-3xl bg-[var(--teal-soft)] border-2 border-teal-200 px-4 py-3 flex items-center gap-3 animate-fade-in-up">
+          <span className="text-3xl">🎯</span>
+          <div>
+            <p className="text-xs font-bold text-[var(--teal)] uppercase tracking-wide">Today's focus</p>
+            <p className="font-black text-[var(--ink)]">{focusPhoneme.label}</p>
+          </div>
+        </div>
+      )}
 
       {/* Today's Flow */}
       <section className="space-y-3 animate-fade-in-up">
