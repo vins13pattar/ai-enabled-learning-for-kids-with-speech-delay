@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="110" fill="#4a6cf7"/>
+  <rect x="30" y="30" width="452" height="452" rx="88" fill="#dde7ff"/>
+
+  <!-- Tail feathers -->
+  <ellipse cx="200" cy="460" rx="18" ry="48" fill="#ef4444" transform="rotate(-22 200 460)"/>
+  <ellipse cx="256" cy="468" rx="18" ry="54" fill="#3b82f6"/>
+  <ellipse cx="312" cy="460" rx="18" ry="48" fill="#22c55e" transform="rotate(22 312 460)"/>
+
+  <!-- Body -->
+  <ellipse cx="256" cy="346" rx="80" ry="90" fill="#16a34a"/>
+
+  <!-- Left wing -->
+  <path d="M176 300 Q118 336 128 406 Q164 422 196 368 Z" fill="#2563eb"/>
+  <path d="M176 300 Q132 330 138 390 Q164 402 186 356 Z" fill="#60a5fa"/>
+
+  <!-- Right wing -->
+  <path d="M336 300 Q394 336 384 406 Q348 422 316 368 Z" fill="#2563eb"/>
+  <path d="M336 300 Q380 330 374 390 Q348 402 326 356 Z" fill="#60a5fa"/>
+
+  <!-- Belly -->
+  <ellipse cx="256" cy="362" rx="44" ry="58" fill="#4ade80"/>
+
+  <!-- Head -->
+  <circle cx="256" cy="200" r="80" fill="#16a34a"/>
+
+  <!-- Crest feathers -->
+  <ellipse cx="232" cy="126" rx="12" ry="35" fill="#fbbf24" transform="rotate(-18 232 126)"/>
+  <ellipse cx="256" cy="120" rx="12" ry="38" fill="#f59e0b"/>
+  <ellipse cx="280" cy="126" rx="12" ry="35" fill="#fbbf24" transform="rotate(18 280 126)"/>
+  <ellipse cx="232" cy="93" rx="7" ry="10" fill="#fde68a" transform="rotate(-18 232 93)"/>
+  <ellipse cx="256" cy="88" rx="7" ry="11" fill="#fde68a"/>
+  <ellipse cx="280" cy="93" rx="7" ry="10" fill="#fde68a" transform="rotate(18 280 93)"/>
+
+  <!-- Cheek blush -->
+  <circle cx="192" cy="218" r="18" fill="#fca5a5" opacity="0.75"/>
+  <circle cx="320" cy="218" r="18" fill="#fca5a5" opacity="0.75"/>
+
+  <!-- Left eye -->
+  <circle cx="218" cy="180" r="26" fill="white"/>
+  <circle cx="222" cy="185" r="17" fill="#0f172a"/>
+  <circle cx="228" cy="178" r="7" fill="white"/>
+
+  <!-- Right eye -->
+  <circle cx="294" cy="180" r="26" fill="white"/>
+  <circle cx="298" cy="185" r="17" fill="#0f172a"/>
+  <circle cx="304" cy="178" r="7" fill="white"/>
+
+  <!-- Beak -->
+  <path d="M228 232 Q256 214 284 232 Q274 264 256 272 Q238 264 228 232 Z" fill="#f97316"/>
+  <path d="M238 252 Q256 265 274 252 Q266 276 256 280 Q246 276 238 252 Z" fill="#ea580c"/>
+
+  <!-- Feet -->
+  <g stroke="#f97316" stroke-width="9" stroke-linecap="round">
+    <line x1="220" y1="432" x2="200" y2="476"/>
+    <line x1="220" y1="432" x2="220" y2="480"/>
+    <line x1="220" y1="432" x2="240" y2="476"/>
+    <line x1="292" y1="432" x2="272" y2="476"/>
+    <line x1="292" y1="432" x2="292" y2="480"/>
+    <line x1="292" y1="432" x2="312" y2="476"/>
+  </g>
+</svg>

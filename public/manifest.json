@@ -1,0 +1,38 @@
+{
+  "name": "Speech Practice Buddy",
+  "short_name": "SpeechBuddy",
+  "description": "Fun daily speech practice for kids ages 2–7, guided by Zippy the Parrot.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fef9f0",
+  "theme_color": "#4a6cf7",
+  "orientation": "portrait",
+  "categories": ["education", "kids"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Speech Check-in",
+      "url": "/assessment",
+      "description": "10-word speech check-in"
+    },
+    {
+      "name": "Chat with Zippy",
+      "url": "/companion",
+      "description": "Practice with Zippy the Parrot"
+    }
+  ]
+}

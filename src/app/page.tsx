@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { loadOnboarding } from "@/lib/onboarding-storage";
+import { ZippyParrot } from "@/components/ZippyParrot";
 
 export default function HomePage() {
   const [ready, setReady] = useState(false);
@@ -18,52 +19,63 @@ export default function HomePage() {
 
   if (!ready) {
     return (
-      <main className="mx-auto flex min-h-dvh max-w-lg flex-col justify-center gap-6 px-6 py-12">
-        <p className="text-center text-slate-600">Loading…</p>
+      <main className="mx-auto flex min-h-dvh max-w-lg flex-col items-center justify-center gap-6 px-6 py-12">
+        <ZippyParrot size={80} className="animate-float" />
       </main>
     );
   }
 
   return (
     <main className="mx-auto flex min-h-dvh max-w-lg flex-col gap-8 px-6 py-12">
-      <header className="space-y-3 text-center">
-        <p className="text-sm font-medium text-[var(--accent)]">Phase 1 slice</p>
-        <h1 className="text-3xl font-semibold tracking-tight text-[var(--ink)]">
-          Speech practice, made playful
-        </h1>
-        <p className="text-slate-600">
-          Short onboarding, a ten-word check-in, three practice shells, and a safe AI buddy
-          stub — built for caregivers and kids ages 2–7.
+      <header className="space-y-4 text-center animate-fade-in-up">
+        <div className="flex justify-center">
+          <ZippyParrot size={120} variant="wave" className="animate-float" />
+        </div>
+        <div>
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--ink)]">
+            Speech Practice Buddy
+          </h1>
+          <p className="mt-1 text-lg font-semibold text-[var(--accent)]">
+            with Zippy the Parrot!
+          </p>
+        </div>
+        <p className="text-slate-600 text-base leading-relaxed">
+          Fun daily practice for kids ages 2–7 working on their speech sounds.
+          Guided by a grown-up, loved by kids! 🌟
         </p>
       </header>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 animate-fade-in-up">
         {!hasProfile ? (
           <Link
             href="/onboarding"
-            className="rounded-2xl bg-[var(--accent)] px-5 py-4 text-center text-lg font-semibold text-white shadow-sm transition hover:opacity-95"
+            className="rounded-3xl bg-[var(--accent)] px-5 py-5 text-center text-xl font-bold text-white shadow-lg transition-transform hover:scale-105 active:scale-95 animate-pulse-glow"
           >
-            Start parent onboarding
+            👋 Start Setup (Grown-ups first!)
           </Link>
         ) : (
           <Link
             href="/home"
-            className="rounded-2xl bg-[var(--accent)] px-5 py-4 text-center text-lg font-semibold text-white shadow-sm transition hover:opacity-95"
+            className="rounded-3xl bg-[var(--accent)] px-5 py-5 text-center text-xl font-bold text-white shadow-lg transition-transform hover:scale-105 active:scale-95 animate-pulse-glow"
           >
-            Go to home
+            🎉 Let's Practice!
           </Link>
         )}
         <Link
           href="/onboarding"
-          className="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-medium text-slate-700 shadow-sm"
+          className="rounded-3xl border-2 border-slate-200 bg-white px-5 py-4 text-center text-base font-semibold text-slate-700 shadow-sm transition-transform hover:scale-105 active:scale-95"
         >
-          {hasProfile ? "Review onboarding answers" : "Skip to preview onboarding"}
+          {hasProfile ? "⚙️ Update settings" : "👀 Preview the app"}
         </Link>
       </div>
 
-      <p className="text-center text-xs text-slate-500">
-        Not a medical device. For professional advice, talk with a qualified clinician.
-      </p>
+      <div className="rounded-3xl bg-[var(--accent-soft)] px-5 py-4 text-center animate-fade-in-up">
+        <p className="text-sm font-semibold text-[var(--accent)]">🩺 For grown-ups</p>
+        <p className="mt-1 text-xs text-slate-600">
+          This is a practice companion, not a medical device. Always work with a
+          qualified speech-language pathologist for clinical advice.
+        </p>
+      </div>
     </main>
   );
 }
